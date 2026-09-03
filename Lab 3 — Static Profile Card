@@ -1,0 +1,44 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text('Isis Profile')),
+        body: Center(
+          child: Container(
+            color: Colors.deepPurple.shade50,
+            padding: EdgeInsets.all(100),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                CircleAvatar(radius: 90, /* backgroundImage */),
+                SizedBox(height: 30),
+                Text('Isis Vineyard', style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold)),
+                Text('Your bio or title'),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    _statBox('100', 'Followers'),
+                    _statBox('23', 'Projects'),
+                    _statBox('200', 'Likes'),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _statBox(String number, String label) {
+    return Column(children: [Text(number), Text(label)]);
+  }
+}
