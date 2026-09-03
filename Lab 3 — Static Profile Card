@@ -6,22 +6,58 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(title: const Text('Isis Profile')),
+        appBar: AppBar(
+          title: const Text('Isis Profile'),
+          backgroundColor: Colors.indigo,
+          foregroundColor: Colors.white,
+          centerTitle: true,
+        ),
         body: Center(
           child: Container(
-            color: Colors.deepPurple.shade50,
-            padding: EdgeInsets.all(100),
+            color: Colors.blueGrey.shade50,
+            width: double.infinity,
+            padding: const EdgeInsets.all(30),
             child: Column(
-              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CircleAvatar(radius: 90, /* backgroundImage */),
-                SizedBox(height: 30),
-                Text('Isis Vineyard', style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold)),
-                Text('Your bio or title'),
+                CircleAvatar(
+                  radius: 90,
+                  backgroundColor: Colors.indigo.shade200,
+                  child: const Icon(
+                    Icons.person,
+                    size: 90,
+                    color: Colors.white,
+                  ),
+                ),
+
+                const SizedBox(height: 30),
+
+                const Text(
+                  'Isis Vineyard',
+                  style: TextStyle(
+                    fontSize: 26,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+
+                const SizedBox(height: 8),
+
+                Text(
+                  'Your bio or title',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.grey.shade700,
+                  ),
+                ),
+
+                const SizedBox(height: 30),
+
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -38,7 +74,18 @@ class MyApp extends StatelessWidget {
     );
   }
 
-  Widget _statBox(String number, String label) {
-    return Column(children: [Text(number), Text(label)]);
+  static Widget _statBox(String number, String label) {
+    return Column(
+      children: [
+        Text(
+          number,
+          style: const TextStyle(
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        Text(label),
+      ],
+    );
   }
 }
